@@ -5,18 +5,22 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
-/*
+/**
     AbstractAnnotationConfigDispatcherServletInitializer 会创建DispatcherServlet 和 ContextLoaderListener。
  */
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{RootConfig.class};
     }
 
+    @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{WebConfig.class};
     }
 
+    @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
@@ -41,7 +45,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     //    return new Filter[] { new MyFilter() };
     //}
 
-    /*
+    /**
     处理 Multipart ,多文件上传
     可以使用 MultipartConfigElement 的多种构造器来设置其他参数
      */

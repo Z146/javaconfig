@@ -3,6 +3,10 @@ package com.zhou.common;
 import org.csource.common.NameValuePair;
 import org.csource.fastdfs.*;
 
+/**
+ * 使用 FastDFS 工具类
+ * @author zhou
+ */
 public class FastDFSClient {
 
 	private StorageClient1 storageClient = null;

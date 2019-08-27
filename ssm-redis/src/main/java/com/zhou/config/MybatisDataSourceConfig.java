@@ -16,13 +16,15 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 import java.io.IOException;
 
+/**
+ * @author 10543
+ */
 @Configuration
 @PropertySource("classpath:jdbc.properties")
 @MapperScan(basePackages = "com.zhou.mappers")
 public class MybatisDataSourceConfig {
     private static final Logger logger=Logger.getLogger(MybatisDataSourceConfig.class);
 
-    //通过读取配置文件的将值赋予定义的字段
     @Value("${druid.driver}")
     private String driver;
     @Value("${druid.url}")
@@ -32,7 +34,7 @@ public class MybatisDataSourceConfig {
     @Value("${druid.password}")
     private String password;
 
-    /*
+    /**
     配置 Druid 连接池
      */
     @Bean
@@ -50,14 +52,19 @@ public class MybatisDataSourceConfig {
         return dataSource;
     }
 
+    /**
+     * 事务
+     * @return 事务管理器
+     */
     @Bean
     public DataSourceTransactionManager transactionManager() {
         logger.info("使用 DataSource 的事务控制");
         return new DataSourceTransactionManager(dataSource());
     }
 
-    /*
-    配置 JdbcTemplate 模板
+    /**
+     * 配置 JdbcTemplate 模板
+     * @return jdbc 模板
      */
     @Bean
     public JdbcTemplate jdbcTemplate(){
@@ -71,9 +78,9 @@ public class MybatisDataSourceConfig {
     //    return new NamedParameterJdbcTemplate(dataSource());
     //}
 
-
-    /*
-    整合mybatis
+    /**
+     * 整合mybatis
+     * @return mybatis 使用的 sqlSessionFactory 对象
      */
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean() throws IOException {
@@ -83,8 +90,7 @@ public class MybatisDataSourceConfig {
         //别名
         sqlSessionFactoryBean.setTypeAliasesPackage("com.zhou.domain");
         sqlSessionFactoryBean.setMapperLocations(resourcePatternResolver.getResources("classpath:com/zhou/mappers/*.xml"));
-        //org.apache.ibatis.session.Configuration configuration=new org.apache.ibatis.session.Configuration();
-        //sqlSessionFactoryBean.setConfiguration(configuration);
+
         return sqlSessionFactoryBean;
     }
 

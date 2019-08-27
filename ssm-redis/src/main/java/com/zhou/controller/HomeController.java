@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * @author 10543
+ */
 @Controller
 public class HomeController {
     private static Logger logger = Logger.getLogger(HomeController.class);

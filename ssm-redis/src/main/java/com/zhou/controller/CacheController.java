@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author 10543
+ */
 @RestController
 public class CacheController {
     private RedisTemplate<String,String> redisTemplate;
@@ -25,7 +28,7 @@ public class CacheController {
 
     @GetMapping("/cache/{id}")
     public String testCache(@PathVariable Integer id){
-        //logger.info("执行了方法 testCache()....");
+
         return service.testCache(id);
     }
 }

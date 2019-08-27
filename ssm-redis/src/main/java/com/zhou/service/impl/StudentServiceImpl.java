@@ -19,6 +19,7 @@ public class StudentServiceImpl implements StudentService {
         this.studentMapper = studentMapper;
     }
 
+    @Override
     @Cacheable(value = "cache",key = "#id.toString()")
     public String testCache(Integer id){
         logger.info("执行了方法 testCache()....");

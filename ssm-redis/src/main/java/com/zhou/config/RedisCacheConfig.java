@@ -12,6 +12,9 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+/**
+ * @author 10543
+ */
 @Configuration
 @EnableCaching
 public class RedisCacheConfig extends CachingConfigurerSupport {
@@ -40,7 +43,8 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
         RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);
 
         // Number of seconds before expiration. Defaults to unlimited (0)
-        cacheManager.setDefaultExpiration(3000); // Sets the default expire time (in seconds)
+        // Sets the default expire time (in seconds)
+        cacheManager.setDefaultExpiration(3000);
         return cacheManager;
     }
 }

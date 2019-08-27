@@ -8,6 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * @author 10543
+ */
 @RestController
 public class FileUploadController {
 

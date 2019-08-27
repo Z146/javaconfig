@@ -21,9 +21,12 @@ import org.thymeleaf.templatemode.TemplateMode;
 import java.nio.charset.Charset;
 import java.util.List;
 
+/**
+ * @author 10543
+ */
 @Configuration
-@EnableWebMvc   //启用mvc
-@ComponentScan(basePackages = "com.zhou.controller")  //扫描包
+@EnableWebMvc
+@ComponentScan(basePackages = "com.zhou.controller")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     //配置视图解析器 ，解析JSP视图
@@ -45,7 +48,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
 
-    /*
+    /**
     配置 Thymeleaf 视图解析器
      */
     @Bean
@@ -85,7 +88,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return templateEngine;
     }
 
-    /*
+    /**
     添加静态资源路径
      */
     @Override
@@ -93,7 +96,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         super.addResourceHandlers(registry);
     }
 
-    /*
+    /**
     消息转换，解决 @ResponseBody 乱码的问题
      */
     @Bean

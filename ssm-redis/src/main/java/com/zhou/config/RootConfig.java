@@ -7,9 +7,10 @@ import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-/*
-读取 jdbc.properties 配置文件，配置连接池
-*/
+
+/**
+ * @author 10543
+ */
 @Configuration
 @EnableTransactionManagement
 @Import({MybatisDataSourceConfig.class,RedisCacheConfig.class})

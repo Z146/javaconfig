@@ -4,12 +4,16 @@ package com.zhou.domain;
 import javax.persistence.Table;
 import java.io.Serializable;
 
+/**
+ * @author 10543
+ */
 @Table(name = "tb_student")
+@SuppressWarnings("unused")
 public class Student implements Serializable {
 
     private Integer id;
     private String name;
-    private String gender; //Female 女  male 男
+    private String gender;
     private String address;
 
     public Integer getId() {
